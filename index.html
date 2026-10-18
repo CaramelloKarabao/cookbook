@@ -10,10 +10,12 @@
       --panel-bg: #ffffff;
       --accent: #2e5a44;
       --accent-light: #eaf1eb;
+      --accent-hover: #234635;
       --border: #e3ded6;
       --text: #242926;
       --muted: #6a736d;
       --tag-bg: #f1eee7;
+      --card-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -57,6 +59,9 @@
       font-size: 1.15rem;
       font-weight: 700;
       color: var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     /* Drawer Sidebar */
@@ -154,7 +159,8 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 28px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      box-shadow: var(--card-shadow);
+      margin-bottom: 20px;
     }
     .view-card h2 {
       font-size: 1.7rem;
@@ -174,6 +180,96 @@
       border-radius: 20px;
       color: var(--muted);
       font-weight: 600;
+    }
+
+    /* Home Dashboard Widgets */
+    .dashboard-hero {
+      background: linear-gradient(135deg, var(--accent) 0%, #1e3a2c 100%);
+      color: white;
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(46,90,68,0.15);
+    }
+    .dashboard-hero h2 {
+      color: #fff;
+      font-size: 1.75rem;
+      margin-bottom: 6px;
+    }
+    .dashboard-hero p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .recipe-tile {
+      background: var(--panel-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .recipe-tile:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+    .recipe-tile h3 {
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+    .recipe-tile .tile-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .recipe-tile .btn-open {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .quick-rules-row {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+    }
+    .quick-rule-badge {
+      background: #faf8f5;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      flex-shrink: 0;
+      max-width: 260px;
+    }
+    .quick-rule-badge strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+    .quick-rule-badge span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.3;
+      display: block;
     }
 
     /* Collapsible Sections */
@@ -196,9 +292,7 @@
       align-items: center;
       justify-content: space-between;
     }
-    details.collapsible-section summary::-webkit-details-marker {
-      display: none;
-    }
+    details.collapsible-section summary::-webkit-details-marker { display: none; }
     details.collapsible-section summary::after {
       content: '▾';
       font-size: 1.1rem;
@@ -212,9 +306,7 @@
       border-top: 1px solid var(--border);
     }
 
-    ul.check-list {
-      list-style: none;
-    }
+    ul.check-list { list-style: none; }
     ul.check-list li {
       display: flex;
       align-items: flex-start;
@@ -268,12 +360,12 @@
     <ul class="nav-list" id="navList"></ul>
   </aside>
 
-  <!-- Main Viewer -->
+  <!-- Main Content Area -->
   <main>
     <div class="container" id="contentArea"></div>
   </main>
 
-  <!-- App State & Loader -->
+  <!-- Global App State -->
   <script>
     window.cookbookApp = {
       rules: [],
@@ -292,7 +384,7 @@
       document.getElementById('drawerOverlay').classList.toggle('open', open);
     }
 
-    let activeView = "rules";
+    let activeView = "home";
 
     function loadWeekFiles(files) {
       let loaded = 0;
@@ -312,10 +404,7 @@
     }
 
     function initApp() {
-      // Set initial view to the newest recipe if available
-      if (window.cookbookApp.weeks.length > 0 && window.cookbookApp.weeks[0].recipes.length > 0) {
-        activeView = window.cookbookApp.weeks[0].recipes[0].id;
-      }
+      activeView = "home";
       renderNav();
       renderContent();
     }
@@ -323,7 +412,8 @@
     function renderNav() {
       const nav = document.getElementById("navList");
       nav.innerHTML = `
-        <div class="nav-group-title">Kitchen Handbook</div>
+        <div class="nav-group-title">Navigation</div>
+        <button class="nav-item ${activeView === 'home' ? 'active' : ''}" onclick="selectView('home')">🏠 Home Dashboard</button>
         <button class="nav-item ${activeView === 'rules' ? 'active' : ''}" onclick="selectView('rules')">📋 Kitchen Rules & Notes</button>
       `;
 
@@ -362,9 +452,88 @@
       }
     }
 
+    function renderHome() {
+      const pageTitle = document.getElementById("pageTitle");
+      pageTitle.innerText = "Kitchen Companion";
+
+      const currentWeek = window.cookbookApp.weeks[0];
+
+      return `
+        <div class="dashboard-hero">
+          <h2>Welcome to the Kitchen</h2>
+          <p>${currentWeek ? currentWeek.weekTitle : 'No weekly plan loaded'}</p>
+        </div>
+
+        <h3 style="font-size: 1.1rem; color: var(--accent); margin-bottom: 12px; font-weight: 700;">
+          🥘 This Week's Meals
+        </h3>
+        
+        <div class="grid-cards">
+          ${(currentWeek ? currentWeek.recipes : []).map(r => `
+            <div class="recipe-tile" onclick="selectView('${r.id}')">
+              <div>
+                <h3>${r.title}</h3>
+                <div class="tile-tags">
+                  ${r.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+                </div>
+              </div>
+              <div class="btn-open">View Recipe & Steps →</div>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Consolidated Prep Accordion for Grocery Day -->
+        ${currentWeek ? `
+          <details class="collapsible-section" open>
+            <summary>🔪 All Prep Tasks at a Glance (Grocery Day)</summary>
+            <div class="section-body">
+              <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 12px;">Get all your containers prepped and veg chopped in one go:</p>
+              <ul class="check-list">
+                ${currentWeek.recipes.map(r => 
+                  r.prep.map((step, idx) => {
+                    const chkId = `home-prep-${r.id}-${idx}`;
+                    const isChecked = localStorage.getItem('chk_' + chkId) === 'true';
+                    return `
+                      <li class="${isChecked ? 'checked' : ''}">
+                        <input type="checkbox" id="${chkId}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('${chkId}')">
+                        <label for="${chkId}"><strong>${r.title.split(' ')[0]}:</strong> ${step}</label>
+                      </li>
+                    `;
+                  }).join('')
+                ).join('')}
+              </ul>
+            </div>
+          </details>
+        ` : ''}
+
+        <h3 style="font-size: 1.05rem; color: var(--accent); margin: 24px 0 10px; font-weight: 700;">
+          ⚡ Quick Kitchen Equipment Notes
+        </h3>
+        <div class="quick-rules-row">
+          <div class="quick-rule-badge">
+            <strong>Induction Temperatures</strong>
+            <span>Simmer (80–100°C) • Sauté (120–140°C) • Fry (160–180°C) • Sear (200–220°C)</span>
+          </div>
+          <div class="quick-rule-badge">
+            <strong>Air Fryer Roasting</strong>
+            <span>180–190°C • Shake basket halfway • Single layers for even crisping</span>
+          </div>
+          <div class="quick-rule-badge">
+            <strong>Spring Onions</strong>
+            <span>Chop whole bunch upon delivery & freeze in a bag for garnish</span>
+          </div>
+        </div>
+      `;
+    }
+
     function renderContent() {
       const container = document.getElementById("contentArea");
       const pageTitle = document.getElementById("pageTitle");
+
+      if (activeView === 'home') {
+        container.innerHTML = renderHome();
+        return;
+      }
 
       if (activeView === 'rules') {
         pageTitle.innerText = "Kitchen Rules";
@@ -460,7 +629,6 @@
       `;
     }
 
-    // Trigger manifest file loader
     loadWeekFiles(window.cookbookManifest || []);
   </script>
 </body>
