@@ -14,7 +14,6 @@
       --text: #242926;
       --muted: #6a736d;
       --tag-bg: #f1eee7;
-      --danger: #b94a48;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -22,53 +21,91 @@
       background: var(--bg-color);
       color: var(--text);
       display: flex;
+      flex-direction: column;
       height: 100vh;
       overflow: hidden;
     }
+
+    /* Top Bar */
+    header {
+      background: var(--panel-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 10;
+    }
+    .burger-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .burger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .header-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* Drawer Sidebar */
+    .drawer-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.35);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
     aside {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
       width: 320px;
       background: var(--panel-bg);
       border-right: 1px solid var(--border);
+      z-index: 101;
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
       display: flex;
       flex-direction: column;
-      flex-shrink: 0;
     }
-    .sidebar-header {
+    aside.open {
+      transform: translateX(0);
+    }
+    .drawer-header {
       padding: 20px;
       border-bottom: 1px solid var(--border);
-    }
-    .sidebar-header h1 {
-      font-size: 1.25rem;
-      color: var(--accent);
-      margin-bottom: 4px;
-    }
-    .sidebar-header p {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    .sidebar-actions {
-      padding: 10px 16px;
       display: flex;
-      gap: 8px;
-      border-bottom: 1px solid var(--border);
-      background: #faf8f5;
+      justify-content: space-between;
+      align-items: center;
     }
-    .btn-action {
-      flex: 1;
-      padding: 8px 12px;
-      border: 1px solid var(--accent);
-      background: transparent;
+    .drawer-header h2 {
+      font-size: 1.15rem;
       color: var(--accent);
-      font-size: 0.8rem;
-      font-weight: 600;
-      border-radius: 6px;
-      cursor: pointer;
-      text-align: center;
-      transition: all 0.15s ease;
     }
-    .btn-action:hover {
-      background: var(--accent);
-      color: white;
+    .btn-close {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--muted);
+      line-height: 1;
     }
     .nav-list {
       flex: 1;
@@ -102,10 +139,11 @@
     .nav-item:hover { background: var(--accent-light); }
     .nav-item.active { background: var(--accent); color: white; }
 
+    /* Content Area */
     main {
       flex: 1;
       overflow-y: auto;
-      padding: 40px;
+      padding: 24px 16px 60px;
     }
     .container {
       max-width: 820px;
@@ -115,11 +153,11 @@
       background: var(--panel-bg);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 32px;
+      padding: 28px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
     .view-card h2 {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       color: var(--accent);
       margin-bottom: 8px;
     }
@@ -137,16 +175,45 @@
       color: var(--muted);
       font-weight: 600;
     }
-    .section-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin: 28px 0 14px;
-      padding-bottom: 6px;
-      border-bottom: 2px solid var(--accent-light);
+
+    /* Collapsible Sections */
+    details.collapsible-section {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      background: #ffffff;
+      overflow: hidden;
     }
+    details.collapsible-section summary {
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--accent);
+      cursor: pointer;
+      user-select: none;
+      background: #faf8f5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    details.collapsible-section summary::-webkit-details-marker {
+      display: none;
+    }
+    details.collapsible-section summary::after {
+      content: '▾';
+      font-size: 1.1rem;
+      transition: transform 0.2s ease;
+    }
+    details.collapsible-section[open] summary::after {
+      transform: rotate(180deg);
+    }
+    .section-body {
+      padding: 16px 18px;
+      border-top: 1px solid var(--border);
+    }
+
     ul.check-list {
       list-style: none;
-      margin-bottom: 20px;
     }
     ul.check-list li {
       display: flex;
@@ -177,241 +244,90 @@
       color: var(--accent);
       margin-bottom: 4px;
     }
-    /* Modal styles */
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.4);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-      padding: 20px;
-    }
-    .modal {
-      background: #fff;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 600px;
-      padding: 24px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    .modal h3 {
-      font-size: 1.25rem;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-    .modal textarea {
-      width: 100%;
-      height: 200px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px;
-      font-family: monospace;
-      font-size: 0.85rem;
-      margin-bottom: 16px;
-    }
-    .modal-btns {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-    }
-    @media (max-width: 768px) {
-      body { flex-direction: column; overflow: auto; }
-      aside { width: 100%; height: auto; }
-      main { padding: 16px; }
-    }
   </style>
 </head>
 <body>
 
-  <aside>
-    <div class="sidebar-header">
-      <h1>Weekly Kitchen Companion</h1>
-      <p>Interactive meal plan & checklists</p>
-    </div>
-    <div class="sidebar-actions">
-      <button class="btn-action" onclick="openAddWeekModal()">+ Add Week</button>
-      <button class="btn-action" onclick="resetToDefaults()">Reset</button>
+  <!-- Top Bar -->
+  <header>
+    <button class="burger-btn" onclick="toggleDrawer(true)" aria-label="Open Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="header-title" id="pageTitle">Kitchen Companion</div>
+  </header>
+
+  <!-- Slide-out Drawer Navigation -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawer(false)"></div>
+  <aside id="drawerNav">
+    <div class="drawer-header">
+      <h2>Cookbook Menu</h2>
+      <button class="btn-close" onclick="toggleDrawer(false)">&times;</button>
     </div>
     <ul class="nav-list" id="navList"></ul>
   </aside>
 
+  <!-- Main Viewer -->
   <main>
     <div class="container" id="contentArea"></div>
   </main>
 
-  <div class="modal-overlay" id="addWeekModal">
-    <div class="modal">
-      <h3>Paste New Week JSON</h3>
-      <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 12px;">Paste the week code block provided by Gemini below to add it directly to your book.</p>
-      <textarea id="weekJsonInput" placeholder='{ "weekTitle": "Week of...", "recipes": [...] }'></textarea>
-      <div class="modal-btns">
-        <button class="btn-action" onclick="closeAddWeekModal()">Cancel</button>
-        <button class="btn-action" style="background: var(--accent); color: white;" onclick="saveNewWeek()">Save Week</button>
-      </div>
-    </div>
-  </div>
-
+  <!-- App State & Loader -->
   <script>
-    const defaultCookbookData = {
-      kitchenRules: [
-        {
-          title: "Cooking Equipment: Air Fryer Only",
-          rule: "No oven currently available. All baking and roasting must be calibrated for an air fryer (typically 15-20°C lower and 25-30% faster than conventional ovens). Avoid overcrowding the basket by batching if necessary."
-        },
-        {
-          title: "Induction Cooktop Settings (Kmart)",
-          rule: "Kmart portable induction cooktop calibrated in 20°C increments (60°C to 240°C). Always specify exact temperatures: Gentle simmer (80–100°C), Sauté/Reduction (120–140°C), Shallow Frying (160–180°C), Hard Searing (200–220°C)."
-        },
-        {
-          title: "Spring Onions (Scallions)",
-          rule: "Whenever green onions arrive, finely chop the entire bunch into garnish-ready rounds and immediately store them in a freezer bag. Use directly from the freezer as needed."
-        },
-        {
-          title: "Root Veg Tops",
-          rule: "Trim carrot and beet greens immediately upon receipt to keep roots crisp and prevent moisture loss."
-        }
-      ],
-      weeks: [
-        {
-          weekTitle: "Week of Oct 16, 2026",
-          recipes: [
-            {
-              id: "schnitzel",
-              title: "Crispy Chicken Schnitzel with Pear, Apple & Cos Salad",
-              tags: ["Gluten-Free", "Quick Cook", "Pan-Fried"],
-              ingredients: [
-                "Gluten-Free Free Range Chicken Schnitzels",
-                "Cos / Romaine lettuce",
-                "Pear & Apple",
-                "Broad beans",
-                "Pantry: Olive oil, lemon juice (or vinegar), Dijon, salt & pepper"
-              ],
-              prep: [
-                "Pod broad beans, blanch in boiling salted water (induction set to 120°C–140°C) for 2 mins, ice shock, and double-peel the outer skins.",
-                "Wash, dry, and chop crisp cos lettuce into bite-sized ribbons.",
-                "Thinly slice crisp pear and apple right before plating to prevent oxidisation.",
-                "Whisk 3 tbsp olive oil with 1 tbsp lemon juice, cracked pepper, flaky salt, and 1/2 tsp Dijon mustard."
-              ],
-              cooking: [
-                "Heat 2–3 tbsp oil in your pan on the induction cooktop set to 160°C–180°C.",
-                "Shallow fry schnitzels for 3–5 minutes per side until deeply golden, crisp, and cooked through.",
-                "Toss cos lettuce, broad beans, pear, and apple slices in the vinaigrette.",
-                "Plate schnitzel hot out of the pan alongside the dressed salad."
-              ]
-            },
-            {
-              id: "meatball-bake",
-              title: "Air Fryer Italian Meatballs with Rich Tomato Sugo & Charred Veg",
-              tags: ["Air Fryer + Stovetop", "Rich Sauce", "Italian Comfort"],
-              ingredients: [
-                "Grass-Fed Italian Beef Meatballs",
-                "2 Zucchini",
-                "1 Green Capsicum",
-                "2–3 Dutch carrots",
-                "1 Brown onion (diced)",
-                "2–3 Cloves garlic (minced)",
-                "1 Can (400g) Crushed tomatoes",
-                "1–2 tbsp Tomato paste",
-                "Pre-sliced frozen spring onions (from freezer stash)",
-                "Pantry: Olive oil, salt, cracked black pepper, dried oregano/basil, pinch of sugar"
-              ],
-              prep: [
-                "Chop zucchini into 1.5 cm rounds, deseed and cut capsicum into bite-sized chunks, slice carrots into 1 cm rounds.",
-                "Finely dice 1 brown onion and mince 2–3 garlic cloves for the sauce.",
-                "Storage: If prepping ahead, store chopped zucchini, capsicum, and carrots together in an airtight container lined with paper towel. Keep diced onion and garlic in a small separate container."
-              ],
-              cooking: [
-                "Start the Sugo: Heat 1–2 tbsp olive oil in a wide saucepan/skillet on your induction cooktop at 140°C. Add diced onion with a pinch of salt and cook for 3–4 minutes until soft and translucent.",
-                "Add minced garlic and 1–2 tbsp tomato paste. Stir continuously for 1–2 minutes at 120°C until the paste turns a deep rust color and is fragrant.",
-                "Pour in the can of crushed tomatoes, 1/4 cup water, 1 tsp dried Italian herbs, cracked black pepper, and a pinch of sugar. Drop cooktop to 80°C–100°C to simmer gently with the lid askew for 12–15 minutes.",
-                "Air Fry Meatballs & Veg: Preheat air fryer to 180°C. Toss prepped zucchini, capsicum, and carrots with olive oil, salt, and pepper.",
-                "Arrange vegetables and raw meatballs in the air fryer basket (single layer; batch if needed). Air fry at 180°C for 12–14 minutes, shaking halfway, until the meatballs are browned (71°C internal) and the veg has blistered edges.",
-                "Combine & Serve: Tumble the crispy meatballs and veg directly into the rich bubbling tomato sugo to coat, or spoon the thick sauce into bowls and top with the meatballs and veg. Finish with a scatter of frozen chopped spring onions."
-              ]
-            },
-            {
-              id: "beef-braise",
-              title: "Tender Braised Chuck with Air-Roasted Root Veg",
-              tags: ["Stovetop Braise", "Air Fryer Roasting", "Comfort Food"],
-              ingredients: [
-                "1.2 kg Grass-Fed Beef Chuck Roast",
-                "1 Butternut Pumpkin",
-                "1 Large Beetroot",
-                "Carrots (large + remaining Dutch carrots)",
-                "Fresh ginger",
-                "Pre-sliced frozen spring onions",
-                "Beef stock or red wine"
-              ],
-              prep: [
-                "Peel and cube butternut pumpkin, beetroot, and carrots into even 2–3 cm roasting chunks.",
-                "Peel and slice a 2–3 cm knob of fresh ginger into matchsticks.",
-                "Storage: Store root veg in an airtight container (keep beetroot separate to avoid colour transfer)."
-              ],
-              cooking: [
-                "Sear meat on cooktop: Set induction cooktop to 200°C. Cut chuck roast into fist-sized portions, season, and hard-sear in a deep pot until deeply browned on all sides.",
-                "Drop cooktop to 120°C, toss in ginger for 60 seconds, then deglaze the base with 1–2 cups beef stock.",
-                "Braise: Cover tightly with a lid, reduce cooktop to 80°C–100°C for a gentle simmer, and let braise low and slow for 2.5–3 hours until completely fork-tender.",
-                "Air-fry root veg: 25 minutes before serving, toss prepped pumpkin, carrots, and beetroot with olive oil, salt, and pepper. Air fry at 190°C for 18–22 minutes (shaking basket halfway) until tender and nicely caramelised.",
-                "Serve braised beef over the roasted vegetables with pan juices and frozen spring onions scattered on top."
-              ]
-            }
-          ]
-        }
-      ]
+    window.cookbookApp = {
+      rules: [],
+      weeks: []
     };
+  </script>
 
-    let cookbookData = JSON.parse(localStorage.getItem('cookbookData')) || defaultCookbookData;
-    let activeView = "schnitzel";
+  <!-- Rules File -->
+  <script src="rules.js"></script>
 
-    function saveData() {
-      localStorage.setItem('cookbookData', JSON.stringify(cookbookData));
+  <!-- Weeks Manifest & Dynamic Loader -->
+  <script src="manifest.js"></script>
+  <script>
+    function toggleDrawer(open) {
+      document.getElementById('drawerNav').classList.toggle('open', open);
+      document.getElementById('drawerOverlay').classList.toggle('open', open);
     }
 
-    function resetToDefaults() {
-      if (confirm("Reset to default recipes? Your local changes will be replaced.")) {
-        cookbookData = JSON.parse(JSON.stringify(defaultCookbookData));
-        saveData();
-        renderNav();
-        renderContent();
+    let activeView = "rules";
+
+    function loadWeekFiles(files) {
+      let loaded = 0;
+      if (!files.length) {
+        initApp();
+        return;
       }
+      files.forEach(file => {
+        const s = document.createElement('script');
+        s.src = file;
+        s.onload = () => {
+          loaded++;
+          if (loaded === files.length) initApp();
+        };
+        document.body.appendChild(s);
+      });
     }
 
-    function openAddWeekModal() {
-      document.getElementById('addWeekModal').style.display = 'flex';
-    }
-    function closeAddWeekModal() {
-      document.getElementById('addWeekModal').style.display = 'none';
-      document.getElementById('weekJsonInput').value = '';
-    }
-    function saveNewWeek() {
-      const input = document.getElementById('weekJsonInput').value.trim();
-      try {
-        const weekObj = JSON.parse(input);
-        if (!weekObj.weekTitle || !weekObj.recipes) {
-          alert('Invalid format. Must include weekTitle and recipes array.');
-          return;
-        }
-        cookbookData.weeks.unshift(weekObj);
-        saveData();
-        closeAddWeekModal();
-        activeView = weekObj.recipes[0].id;
-        renderNav();
-        renderContent();
-      } catch(e) {
-        alert('Invalid JSON: ' + e.message);
+    function initApp() {
+      // Set initial view to the newest recipe if available
+      if (window.cookbookApp.weeks.length > 0 && window.cookbookApp.weeks[0].recipes.length > 0) {
+        activeView = window.cookbookApp.weeks[0].recipes[0].id;
       }
+      renderNav();
+      renderContent();
     }
 
     function renderNav() {
       const nav = document.getElementById("navList");
       nav.innerHTML = `
         <div class="nav-group-title">Kitchen Handbook</div>
-        <button class="nav-item ${activeView === 'rules' ? 'active' : ''}" onclick="setView('rules')">📋 Kitchen Rules & Notes</button>
+        <button class="nav-item ${activeView === 'rules' ? 'active' : ''}" onclick="selectView('rules')">📋 Kitchen Rules & Notes</button>
       `;
 
-      cookbookData.weeks.forEach(week => {
+      window.cookbookApp.weeks.forEach(week => {
         const groupHeader = document.createElement("div");
         groupHeader.className = "nav-group-title";
         groupHeader.innerText = week.weekTitle;
@@ -421,14 +337,15 @@
           const btn = document.createElement("button");
           btn.className = `nav-item ${activeView === r.id ? 'active' : ''}`;
           btn.innerText = r.title;
-          btn.onclick = () => setView(r.id);
+          btn.onclick = () => selectView(r.id);
           nav.appendChild(btn);
         });
       });
     }
 
-    function setView(viewId) {
-      activeView = viewId;
+    function selectView(id) {
+      activeView = id;
+      toggleDrawer(false);
       renderNav();
       renderContent();
     }
@@ -447,13 +364,15 @@
 
     function renderContent() {
       const container = document.getElementById("contentArea");
+      const pageTitle = document.getElementById("pageTitle");
 
       if (activeView === 'rules') {
+        pageTitle.innerText = "Kitchen Rules";
         container.innerHTML = `
           <div class="view-card">
-            <h2>Kitchen Rules & Preferences</h2>
-            <p style="color: var(--muted); margin-bottom: 24px;">Global handling routines, induction cooktop settings, and air fryer parameters.</p>
-            ${cookbookData.kitchenRules.map(r => `
+            <h2>Kitchen Rules & Settings</h2>
+            <p style="color: var(--muted); margin-bottom: 24px;">Default equipment calibrations and food storage preferences.</p>
+            ${(window.cookbookApp.rules || []).map(r => `
               <div class="rule-card">
                 <strong>${r.title}</strong>
                 <span>${r.rule}</span>
@@ -465,12 +384,14 @@
       }
 
       let recipe;
-      cookbookData.weeks.forEach(w => {
+      window.cookbookApp.weeks.forEach(w => {
         const found = w.recipes.find(r => r.id === activeView);
         if (found) recipe = found;
       });
 
       if (!recipe) return;
+
+      pageTitle.innerText = recipe.title;
 
       container.innerHTML = `
         <div class="view-card">
@@ -479,53 +400,68 @@
             ${recipe.tags.map(t => `<span class="tag">${t}</span>`).join('')}
           </div>
 
-          <div class="section-title">🛒 Ingredients</div>
-          <ul class="check-list">
-            ${recipe.ingredients.map((item, idx) => {
-              const chkId = `ing-${recipe.id}-${idx}`;
-              const isChecked = localStorage.getItem('chk_' + chkId) === 'true';
-              return `
-                <li class="${isChecked ? 'checked' : ''}">
-                  <input type="checkbox" id="${chkId}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('${chkId}')">
-                  <label for="${chkId}">${item}</label>
-                </li>
-              `;
-            }).join('')}
-          </ul>
+          <!-- Section 1: Ingredients -->
+          <details class="collapsible-section" open>
+            <summary>🛒 Ingredients</summary>
+            <div class="section-body">
+              <ul class="check-list">
+                ${recipe.ingredients.map((item, idx) => {
+                  const chkId = `ing-${recipe.id}-${idx}`;
+                  const isChecked = localStorage.getItem('chk_' + chkId) === 'true';
+                  return `
+                    <li class="${isChecked ? 'checked' : ''}">
+                      <input type="checkbox" id="${chkId}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('${chkId}')">
+                      <label for="${chkId}">${item}</label>
+                    </li>
+                  `;
+                }).join('')}
+              </ul>
+            </div>
+          </details>
 
-          <div class="section-title">🔪 Batch Prep & Storage Steps</div>
-          <ul class="check-list">
-            ${recipe.prep.map((step, idx) => {
-              const chkId = `prep-${recipe.id}-${idx}`;
-              const isChecked = localStorage.getItem('chk_' + chkId) === 'true';
-              return `
-                <li class="${isChecked ? 'checked' : ''}">
-                  <input type="checkbox" id="${chkId}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('${chkId}')">
-                  <label for="${chkId}">${step}</label>
-                </li>
-              `;
-            }).join('')}
-          </ul>
+          <!-- Section 2: Batch Prep & Storage -->
+          <details class="collapsible-section" open>
+            <summary>🔪 Batch Prep & Storage</summary>
+            <div class="section-body">
+              <ul class="check-list">
+                ${recipe.prep.map((step, idx) => {
+                  const chkId = `prep-${recipe.id}-${idx}`;
+                  const isChecked = localStorage.getItem('chk_' + chkId) === 'true';
+                  return `
+                    <li class="${isChecked ? 'checked' : ''}">
+                      <input type="checkbox" id="${chkId}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('${chkId}')">
+                      <label for="${chkId}">${step}</label>
+                    </li>
+                  `;
+                }).join('')}
+              </ul>
+            </div>
+          </details>
 
-          <div class="section-title">🍳 Cooking Steps</div>
-          <ul class="check-list">
-            ${recipe.cooking.map((step, idx) => {
-              const chkId = `cook-${recipe.id}-${idx}`;
-              const isChecked = localStorage.getItem('chk_' + chkId) === 'true';
-              return `
-                <li class="${isChecked ? 'checked' : ''}">
-                  <input type="checkbox" id="${chkId}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('${chkId}')">
-                  <label for="${chkId}">${step}</label>
-                </li>
-              `;
-            }).join('')}
-          </ul>
+          <!-- Section 3: Cooking Steps -->
+          <details class="collapsible-section" open>
+            <summary>🍳 Cooking Steps</summary>
+            <div class="section-body">
+              <ul class="check-list">
+                ${recipe.cooking.map((step, idx) => {
+                  const chkId = `cook-${recipe.id}-${idx}`;
+                  const isChecked = localStorage.getItem('chk_' + chkId) === 'true';
+                  return `
+                    <li class="${isChecked ? 'checked' : ''}">
+                      <input type="checkbox" id="${chkId}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('${chkId}')">
+                      <label for="${chkId}">${step}</label>
+                    </li>
+                  `;
+                }).join('')}
+              </ul>
+            </div>
+          </details>
         </div>
       `;
     }
 
-    renderNav();
-    renderContent();
+    // Trigger manifest file loader
+    loadWeekFiles(window.cookbookManifest || []);
   </script>
 </body>
 </html>
