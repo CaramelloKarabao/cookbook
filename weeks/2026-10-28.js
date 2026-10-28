@@ -3,11 +3,11 @@ window.cookbookApp.weeks.push({
   recipes: [
     {
       id: "beef-mince-lettuce-cups",
-      title: "Ginger & Sweet Basil Beef Mince Lettuce Cups",
+      title: "Beef Mince Lettuce Cups with Basil & Ginger",
       tags: ["Beef Mince", "Induction", "Week 1", "Quick"],
       ingredients: [
         "350g Grass Fed Beef Regular Mince",
-        "1 whole iceberg lettuce, leaves gently separated into cups",
+        "1 whole iceberg lettuce, leaves separated into cups",
         "1 cup broad beans, podded and blanched",
         "1 medium zucchini, finely diced",
         "25g fresh ginger, peeled and minced",
@@ -17,22 +17,21 @@ window.cookbookApp.weeks.push({
         "1 tbsp cooking oil"
       ],
       prep: [
-        "Carefully peel 6-8 large outer iceberg leaves; rinse and pat dry, store wrapped in paper towel in an airtight container.",
-        "Pod broad beans; blanch in boiling water for 90 seconds, plunge into cold water, and pop out of their pale skins.",
-        "Finely dice the zucchini and half of a brown onion; mince the fresh ginger.",
-        "Portion 350g of mince into a container for tonight; divide remaining mince into 350g (patties) and 300g (meatballs) and freeze."
+        "Divide the 1 kg beef mince: place 350g in an airtight container for Week 1 fridge storage. Label and freeze the remaining two portions (350g for smash patties, 300g for meatballs).",
+        "Gently separate 6-8 large outer iceberg leaves, rinse in cold water, spin dry, and store wrapped in paper towel inside an airtight container in the crisper drawer.",
+        "Pod broad beans. Blanch in boiling water for 90 seconds, plunge into ice water, pop outer skins off, and store in a sealed container in the fridge."
       ],
       cooking: [
-        "Set induction cooktop to 180°C. Heat 1 tbsp oil in a hybrid skillet or wok.",
+        "Set induction cooktop to 180°C. Heat 1 tbsp oil in a skillet or wok.",
         "Add diced onion and minced ginger; sauté for 2 minutes until fragrant.",
         "Add 350g beef mince, breaking it up with a wooden spoon. Cook for 4-5 minutes until browned.",
-        "Reduce induction heat to 140°C. Add diced zucchini, broad beans, and soy sauce. Sauté for 3 minutes until tender.",
+        "Reduce induction heat to 140°C. Add diced zucchini, blanched broad beans, and soy sauce. Sauté for 3 minutes until tender.",
         "Turn off cooktop, fold through torn fresh basil leaves, and spoon immediately into chilled iceberg cups."
       ]
     },
     {
-      id: "air-fryer-lamb-kebabs",
-      title: "Air-Fried Spiced Lamb Kebabs with Charred Zucchini & Fennel",
+      id: "lamb-skewers-fennel",
+      title: "Spiced Lamb Kebabs with Charred Zucchini & Fennel",
       tags: ["Lamb", "Air Fryer", "Week 1", "Skewers"],
       ingredients: [
         "420g Lamb Shoulder, cut into 2.5 cm cubes",
@@ -44,22 +43,21 @@ window.cookbookApp.weeks.push({
         "Salt and cracked black pepper"
       ],
       prep: [
-        "Butcher lamb shoulder: cut 420g into uniform 2.5 cm cubes; cut remaining 400g into 2 cm thick medallions, wrap tightly, and freeze for Week 2.",
-        "In a bowl, toss the cubed lamb with olive oil, lemon zest, lemon juice, cumin, salt, and pepper.",
-        "Thread lamb onto skewers (or keep loose if basket-cooking).",
-        "Toss sliced zucchini and fennel wedges with a drop of olive oil and salt."
+        "Butcher lamb shoulder: cut 420g into uniform 2.5 cm cubes and place in a container for Week 1. Slice remaining 400g into medallions, vacuum seal or wrap tightly in freezer wrap, and freeze for Week 2.",
+        "Toss diced lamb in a container with 1 tbsp olive oil, lemon zest, lemon juice, cumin, salt, and pepper; seal and refrigerate.",
+        "Slice zucchini into half-moons; store in an airtight container lined with dry paper towel to prevent moisture buildup."
       ],
       cooking: [
         "Preheat air fryer to 190°C.",
-        "Place lamb skewers and fennel wedges in the basket in a single layer.",
-        "Air fry at 190°C for 8 minutes. Turn skewers and add zucchini half-moons to the basket.",
-        "Cook at 190°C for an additional 4-5 minutes until lamb has caramelized edges and vegetables are blistered.",
-        "Rest lamb for 3 minutes and garnish with reserved fennel fronds before serving."
+        "Thread marinated lamb onto skewers (or place loose in basket) alongside fennel wedges.",
+        "Air fry at 190°C for 8 minutes. Turn lamb and add zucchini half-moons to the basket.",
+        "Air fry at 190°C for another 4-5 minutes until edges are crisp and vegetables are tender.",
+        "Rest for 3 minutes and garnish with reserved fennel fronds before serving."
       ]
     },
     {
-      id: "beef-chuck-mushroom-stirfry",
-      title: "Flash-Seared Chuck Beef Stir-Fry with Leek & Swiss Browns",
+      id: "chuck-beef-stirfry",
+      title: "Flash-Seared Chuck Beef with Leek & Swiss Browns",
       tags: ["Beef Chuck", "Induction", "Week 1", "Fast"],
       ingredients: [
         "400g Beef Chuck Roast, sliced paper-thin across the grain",
@@ -71,21 +69,20 @@ window.cookbookApp.weeks.push({
         "Black pepper"
       ],
       prep: [
-        "Butcher beef chuck: slice 400g thinly against the grain for tonight. Cut 400g into 3 cm cubes and freeze for the braise. Cut the remaining 400g into 2 rustic steaks and freeze.",
-        "Wipe mushrooms with a damp paper towel and slice thinly.",
-        "Wash leek thoroughly to remove grit and slice into half-moons.",
-        "Toss sliced beef with half the julienned ginger and a pinch of pepper."
+        "Butcher beef chuck: slice 400g paper-thin across the grain for this stir-fry; store in a sealed container in the fridge. Cube 400g for stew and freeze in a freezer bag. Cut remaining 400g into 2 steaks and freeze in a freezer bag.",
+        "Wipe mushrooms with a dry paper towel and slice; keep in their breathable brown paper bag in the crisper.",
+        "Wash leek thoroughly to remove grit, slice into half-moons, and store in a sealed container lined with a dry paper towel."
       ],
       cooking: [
-        "Set induction cooktop to 220°C with a wide heavy skillet until smoking hot. Add 1 tbsp oil.",
-        "Spread sliced beef across the pan in a single layer. Sear untouched for 90 seconds to build color, then flip and cook 30 seconds more. Transfer beef to a plate.",
-        "Reduce induction heat to 140°C. Add sliced leek, remaining ginger, and mushrooms to the pan fat.",
+        "Set induction cooktop to 220°C with a wide heavy skillet until very hot. Add 1 tbsp oil.",
+        "Spread sliced beef across the pan in a single layer. Sear untouched for 90 seconds, flip and cook 30 seconds more. Transfer beef to a plate.",
+        "Reduce induction heat to 140°C. Add sliced leek, ginger, and mushrooms to the pan fat.",
         "Sauté for 3-4 minutes until mushrooms brown and leeks soften.",
         "Return beef to the pan, drizzle with soy sauce, toss for 30 seconds to glaze, and serve immediately."
       ]
     },
     {
-      id: "smash-patties-crispy-chips",
+      id: "smash-patties-wedges",
       title: "Induction Beef Smash Patties with Air-Fried Potato Wedges",
       tags: ["Beef Mince", "Induction", "Air Fryer", "Week 1"],
       ingredients: [
@@ -97,25 +94,22 @@ window.cookbookApp.weeks.push({
         "Sea salt and coarse black pepper"
       ],
       prep: [
-        "Cut white potatoes into wedges, rinse in cold water for 1 minute to strip surface starch, and dry thoroughly with a clean tea towel.",
-        "Portion 350g thawed beef mince into 4 tight round balls.",
-        "Thinly slice cucumber and half an onion for a crisp side garnish."
+        "Roll 350g beef mince into 4 tight balls and store separated by baking paper in an airtight freezer-safe container.",
+        "Wash and dry cucumbers; store in the crisper drawer wrapped in paper towel."
       ],
       cooking: [
-        "Toss dried potato wedges with 1 tsp oil and salt. Place in air fryer basket.",
-        "Air fry at 180°C for 18-20 minutes, shaking basket at 8 and 14 minutes until crisp and golden brown.",
-        "Set induction cooktop to 220°C with a dry stainless or cast iron skillet. Place beef balls in pan with plenty of space.",
-        "Press each ball flat with a heavy spatula until thin. Season generously with salt and pepper.",
-        "Sear undisturbed for 2.5 minutes until a deep brown crust forms. Flip and sear for 1 minute more.",
-        "Serve patties stacked alongside hot air-fried wedges and cucumber slices."
+        "Thaw beef balls if frozen. Cut potatoes into wedges, rinse cold, and pat completely dry.",
+        "Toss potato wedges with 1 tsp oil and salt. Air fry at 180°C for 18-20 minutes, shaking basket at 8 and 14 minutes until golden.",
+        "Set induction cooktop to 220°C with a dry skillet. Place beef balls in pan, smash flat with a firm spatula, and season heavily with salt and pepper.",
+        "Sear undisturbed for 2.5 minutes, flip, and sear for 1 minute more. Serve with hot wedges and sliced cucumber."
       ]
     },
     {
       id: "pan-seared-lamb-medallions",
-      title: "Citrus-Herb Pan-Seared Lamb Medallions with Charred Asparagus",
+      title: "Pan-Seared Lamb Medallions with Charred Asparagus",
       tags: ["Lamb", "Induction", "Week 1", "Pan Sear"],
       ingredients: [
-        "400g Lamb Shoulder Medallions (from Day 1 prep)",
+        "400g Lamb Shoulder Medallions",
         "1 bunch asparagus, woody ends snapped off",
         "Zest and juice of 1 orange",
         "1 tbsp olive oil",
@@ -123,24 +117,22 @@ window.cookbookApp.weeks.push({
         "Fresh dill fronds for finishing"
       ],
       prep: [
-        "Pat lamb medallions completely dry with a paper towel. Season both sides with salt, pepper, and orange zest.",
-        "Snap woody stems off asparagus spears.",
-        "Storage: Keep prepped asparagus wrapped in a damp paper towel in the crisper drawer until ready to cook."
+        "Trim asparagus woody ends; wrap spears in a slightly damp paper towel and store in an airtight container or produce bag in the crisper drawer.",
+        "Ensure the 400g lamb medallions are sealed airtight in the fridge if cooking in the first 2-3 days (otherwise keep frozen)."
       ],
       cooking: [
-        "Set induction cooktop to 200°C. Heat 1 tbsp olive oil in a skillet.",
-        "Add lamb medallions to the hot pan. Sear for 3 minutes without moving to develop a deep brown sear.",
-        "Flip medallions and drop asparagus spears into the spaces around the meat.",
-        "Cook for another 2-3 minutes, rolling the asparagus in the pan drippings until bright green and tender-crisp.",
-        "Drizzle orange juice over the pan to deglaze, remove from heat, and rest medallions for 4 minutes before serving with dill."
+        "Pat medallions dry; season with salt, pepper, and orange zest.",
+        "Set induction cooktop to 200°C. Heat 1 tbsp oil in a skillet.",
+        "Sear medallions for 3 minutes on the first side. Flip, add asparagus spears around the meat, and cook for another 2-3 minutes.",
+        "Deglaze with orange juice, remove from heat, rest meat for 4 minutes, and finish with fresh dill."
       ]
     },
     {
       id: "slow-braised-beef-root-veg",
-      title: "Hearty Chuck Beef & Winter Root Vegetable Braise",
+      title: "Chuck Beef & Winter Root Vegetable Braise",
       tags: ["Beef Chuck", "Induction", "Week 2", "Slow Cook"],
       ingredients: [
-        "400g Beef Chuck Roast, cubed (thawed from Day 1 prep)",
+        "400g Beef Chuck Roast, cubed (thawed)",
         "2 parsnips, peeled and chopped into 2 cm chunks",
         "2 carrots, peeled and sliced into thick rounds",
         "Remaining 1/2 leek, washed and sliced",
@@ -150,24 +142,23 @@ window.cookbookApp.weeks.push({
         "Salt, pepper, and fresh dill"
       ],
       prep: [
-        "Thaw the 400g cubed chuck beef in the fridge overnight.",
-        "Chop carrots, parsnips, remaining leek, and onion.",
-        "Pat beef dry and season with salt and pepper."
+        "Immediately trim any leafy tops off carrots and parsnips to prevent moisture loss. Store unpeeled root vegetables dry in the vegetable crisper drawer.",
+        "Ensure the 400g cubed beef chuck is portioned, sealed, and frozen in the freezer for Week 2."
       ],
       cooking: [
-        "Set induction cooktop to 200°C. Heat oil in a heavy pot or Dutch oven. Sear beef cubes in a single layer for 4 minutes until deeply browned on all sides. Remove beef.",
-        "Lower cooktop to 120°C. Add diced onion and leek to the pot; sauté for 3 minutes.",
-        "Add carrots, parsnips, seared beef, and stock to just cover the ingredients.",
-        "Bring to a boil, then reduce induction heat to 80°C for a gentle simmer. Cover tightly.",
-        "Simmer undisturbed for 1 hour 45 minutes to 2 hours until beef is fork-tender. Garnish with chopped dill."
+        "Thaw beef chuck overnight in the fridge. Peel and chop root vegetables.",
+        "Set induction cooktop to 200°C. Heat oil in a heavy pot and sear beef cubes for 4 minutes until deeply browned. Remove beef.",
+        "Lower induction to 120°C. Sauté onion and leek for 3 minutes.",
+        "Add carrots, parsnips, seared beef, and stock to just cover.",
+        "Bring to a boil, then reduce induction heat to 80°C. Cover tightly and simmer for 1 hour 45 minutes to 2 hours until tender."
       ]
     },
     {
       id: "air-fried-meatballs-butternut-mash",
-      title: "Spiced Beef Meatballs over Roasted Butternut Squash Mash",
+      title: "Spiced Beef Meatballs with Butternut Squash Mash",
       tags: ["Beef Mince", "Air Fryer", "Week 2", "Mash"],
       ingredients: [
-        "300g Grass Fed Beef Regular Mince (thawed from Day 1 prep)",
+        "300g Grass Fed Beef Regular Mince (thawed)",
         "1/2 medium butternut squash, peeled, seeded, and cubed",
         "1/2 brown onion, grated",
         "10g fresh ginger, finely minced",
@@ -175,87 +166,82 @@ window.cookbookApp.weeks.push({
         "Salt and black pepper"
       ],
       prep: [
-        "Thaw 300g beef mince in the fridge.",
-        "Peel and dice butternut squash into 2 cm cubes.",
-        "In a bowl, mix beef mince with grated onion, minced ginger, 1/2 tsp salt, and pepper. Roll into bite-sized meatballs (about 8-10 meatballs)."
+        "Ensure the 300g portion of beef mince is sealed in a freezer bag and stored in the freezer for Week 2.",
+        "Store the whole butternut squash in a cool, dark, dry pantry spot (it will easily keep for the full 2 weeks whole)."
       ],
       cooking: [
-        "Toss diced butternut with a drizzle of oil and pinch of salt. Place in air fryer basket.",
-        "Air fry squash at 180°C for 14-16 minutes until completely tender and lightly caramelized. Transfer to a bowl and mash with a fork or butter.",
-        "Place meatballs into the air fryer basket in a single layer.",
-        "Air fry meatballs at 190°C for 8-9 minutes until browned and cooked through.",
-        "Spoon warm butternut mash onto plates and top with roasted meatballs."
+        "Thaw beef mince in the fridge. Peel and cube half the butternut squash.",
+        "Mix mince with grated onion, minced ginger, salt, and pepper; shape into 8-10 bite-sized meatballs.",
+        "Toss diced squash with oil and salt; air fry at 180°C for 14-16 minutes until soft, then mash.",
+        "Air fry meatballs in a single layer at 190°C for 8-9 minutes until browned and cooked through. Serve atop mash."
       ]
     },
     {
       id: "seared-chuck-steaks-sweet-corn",
-      title: "Pan-Seared Chuck Steaks with Charred Sweet Corn & Herbs",
+      title: "Pan-Seared Chuck Steaks with Charred Sweet Corn",
       tags: ["Beef Chuck", "Induction", "Week 2", "Steak"],
       ingredients: [
-        "400g Beef Chuck Steaks (2 pieces, thawed from Day 1 prep)",
-        "1 ear sweet corn, husked and kernels cut off the cob",
+        "400g Beef Chuck Steaks (2 pieces, thawed)",
+        "1 ear sweet corn, husked and kernels cut off",
         "Handful fresh basil leaves",
         "1 tbsp olive oil",
         "Salt and cracked black pepper"
       ],
       prep: [
-        "Thaw beef chuck steaks; pat surface completely dry with paper towels.",
-        "Slice sweet corn kernels off the cob.",
-        "Season steaks heavily on both sides with coarse salt and pepper."
+        "Ensure the 400g steak portions are sealed and stored in the freezer for Week 2.",
+        "Husk the ear of corn, slice kernels off the cob, and store in an airtight container in the freezer or fridge."
       ],
       cooking: [
-        "Set induction cooktop to 220°C with a heavy skillet. Add 1 tbsp oil.",
-        "Place steaks in pan. Sear for 3 minutes without moving, flip, and sear for another 2.5 minutes for medium-rare/medium.",
-        "Remove steaks to a cutting board and rest for 5 minutes.",
-        "Drop induction cooktop to 180°C. Toss corn kernels directly into the pan drippings. Sauté for 3-4 minutes until charred and blistered.",
-        "Slice rested steak thinly against the grain, toss with warm charred corn, and fold through fresh basil leaves."
+        "Thaw steaks and pat dry. Season with salt and pepper.",
+        "Set induction cooktop to 220°C with a skillet and 1 tbsp oil.",
+        "Sear steaks for 3 minutes undisturbed, flip, and sear for 2.5 minutes. Rest on a cutting board for 5 minutes.",
+        "Drop induction cooktop to 180°C. Sauté corn kernels in the pan drippings for 3-4 minutes until charred.",
+        "Slice steaks against the grain and toss with charred corn and fresh basil."
       ]
     },
     {
-      id: "air-fried-hash-sautéed-mushrooms",
-      title: "Air-Fried Sweet Potato & Parsnip Hash with Sautéed Mushrooms",
+      id: "air-fried-hash-mushrooms",
+      title: "Sweet Potato & Parsnip Hash with Sautéed Mushrooms",
       tags: ["Vegetarian", "Air Fryer", "Induction", "Week 2"],
       ingredients: [
-        "2 sweet potatoes (kumara), peeled and diced into 1.5 cm cubes",
+        "2 sweet potatoes, scrubbed and diced into 1.5 cm cubes",
         "1 large parsnip, peeled and diced into 1.5 cm cubes",
         "Remaining Swiss brown mushrooms, sliced",
         "1 tbsp olive oil",
         "Salt, pepper, and fresh dill"
       ],
       prep: [
-        "Dice sweet potatoes and parsnip into uniform 1.5 cm cubes.",
-        "Slice remaining Swiss brown mushrooms.",
-        "Toss root cubes with 1 tbsp olive oil, salt, and black pepper."
+        "Store unpeeled sweet potatoes in a dry, ventilated basket away from direct sunlight.",
+        "Keep remaining parsnips trimmed of greens in the crisper drawer."
       ],
       cooking: [
-        "Place diced sweet potato and parsnip into air fryer basket.",
-        "Air fry at 180°C for 16-18 minutes, shaking basket every 5 minutes until crispy outside and soft within.",
-        "Meanwhile, set induction cooktop to 180°C with 1 tsp oil in a skillet. Sauté mushrooms for 4 minutes until golden.",
-        "Toss the hot root veg hash together with the sautéed mushrooms and garnish with fresh dill."
+        "Dice sweet potato and parsnip into 1.5 cm cubes; toss with 1 tbsp oil, salt, and pepper.",
+        "Air fry at 180°C for 16-18 minutes, shaking every 5 minutes until crispy.",
+        "Set induction cooktop to 180°C with 1 tsp oil in a pan. Sauté sliced mushrooms for 4 minutes until golden.",
+        "Toss crispy root hash with sautéed mushrooms and garnish with dill."
       ]
     },
     {
-      id: "rustic-garden-broad-bean-bowl",
-      title: "Rustic Garden Stir-Fry Bowl with Broad Beans, Leek & Crispy Potatoes",
+      id: "rustic-garden-bowl",
+      title: "Rustic Garden Bowl with Broad Beans & Crispy Potatoes",
       tags: ["Vegetarian", "Air Fryer", "Induction", "Week 2"],
       ingredients: [
-        "1 white potato, scrubbed and cut into small 1 cm dice",
-        "Remaining podded broad beans",
+        "1 white potato, scrubbed and cut into 1 cm dice",
+        "Remaining podded broad beans (from Day 1 prep)",
         "Remaining 1/2 butternut squash, diced small",
         "1/2 brown onion, diced",
         "1 tbsp olive oil",
         "Salt and pepper"
       ],
       prep: [
-        "Dice remaining white potato and remaining butternut squash into small 1 cm cubes.",
-        "Pod and blanch remaining broad beans.",
-        "Toss potato and butternut cubes with 1 tsp oil and salt."
+        "Ensure remaining blanched broad beans are stored in an airtight container in the fridge or freezer.",
+        "Store remaining potatoes dry in a dark pantry cupboard."
       ],
       cooking: [
-        "Air fry potato and squash cubes at 180°C for 14 minutes until golden and crisp.",
-        "Set induction cooktop to 140°C with 1 tsp oil in a pan. Sauté diced onion for 3 minutes.",
-        "Stir in blanched broad beans and cook for 2 minutes to warm through.",
-        "Toss the air-fried crispy cubes into the pan with the beans and onion, season to taste, and serve warm."
+        "Dice potato and remaining squash into 1 cm cubes; toss with oil and salt.",
+        "Air fry at 180°C for 14 minutes until golden and crisp.",
+        "Set induction cooktop to 140°C with 1 tsp oil. Sauté diced onion for 3 minutes, then toss in broad beans to warm through.",
+        "Fold air-fried cubes into the pan with beans and onion, season to taste, and serve."
       ]
     },
     {
@@ -269,11 +255,12 @@ window.cookbookApp.weeks.push({
         "Juice of 1/2 lemon and 1 orange"
       ],
       prep: [
-        "Shave chilled honeydew, pears, and apples into thin ribbons or slices.",
-        "Arrange on a plate or in a container, drizzle with fresh lemon and orange juice to prevent browning and enhance sweetness."
+        "Store whole melon, pears, and apples in the fridge crisper or fruit bowl until ready to slice.",
+        "Wash citrus and store at room temperature or in the crisper."
       ],
       cooking: [
-        "Serve immediately chilled as an afternoon refresher or pack into snack containers."
+        "Shave chilled fruit thinly onto plates.",
+        "Drizzle immediately with fresh lemon and orange juice to prevent browning and serve chilled."
       ]
     },
     {
@@ -288,12 +275,12 @@ window.cookbookApp.weeks.push({
         "Pinch of cracked black pepper"
       ],
       prep: [
-        "Toss sliced cucumbers with salt in a bowl and let sit for 10 minutes to draw out excess moisture.",
-        "Drain liquid, toss cucumbers with vinegar, cracked pepper, and fresh dill fronds.",
-        "Storage: Pack into a clean glass jar or sealed container. Keeps crisp in the fridge for up to 7 days."
+        "Slice cucumbers into 3 mm rounds. Toss with 1/2 tsp salt in a colander and rest for 10 minutes to drain liquid.",
+        "Pack salted cucumber slices into a clean glass jar with dill fronds, vinegar, and pepper.",
+        "Storage: Seal tightly and keep in the fridge. Keeps crisp for up to 7-10 days for instant snacking."
       ],
       cooking: [
-        "Enjoy straight from the fridge as a crunchy snack or add to lunches."
+        "Eat straight from the jar as a cold snack or burger garnish."
       ]
     }
   ]
