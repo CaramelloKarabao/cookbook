@@ -386,6 +386,16 @@
 
     let activeView = "home";
 
+    function cleanTitle(title) {
+      if (!title) return "";
+      return title.replace(/^\d+\.\s*/, '');
+    }
+
+    function getLatestWeek() {
+      if (!window.cookbookApp.weeks.length) return null;
+      return window.cookbookApp.weeks[window.cookbookApp.weeks.length - 1];
+    }
+
     function loadWeekFiles(files) {
       let loaded = 0;
       if (!files.length) {
@@ -417,7 +427,10 @@
         <button class="nav-item ${activeView === 'rules' ? 'active' : ''}" onclick="selectView('rules')">📋 Kitchen Rules & Notes</button>
       `;
 
-      window.cookbookApp.weeks.forEach(week => {
+      // Render weeks in reverse chronological order (latest at top of drawer)
+      const reversedWeeks = [...window.cookbookApp.weeks].reverse();
+
+      reversedWeeks.forEach(week => {
         const groupHeader = document.createElement("div");
         groupHeader.className = "nav-group-title";
         groupHeader.innerText = week.weekTitle;
@@ -426,7 +439,7 @@
         week.recipes.forEach(r => {
           const btn = document.createElement("button");
           btn.className = `nav-item ${activeView === r.id ? 'active' : ''}`;
-          btn.innerText = r.title;
+          btn.innerText = cleanTitle(r.title);
           btn.onclick = () => selectView(r.id);
           nav.appendChild(btn);
         });
@@ -456,7 +469,8 @@
       const pageTitle = document.getElementById("pageTitle");
       pageTitle.innerText = "Kitchen Companion";
 
-      const currentWeek = window.cookbookApp.weeks[0];
+      // Always picks the latest loaded fortnight from the manifest
+      const currentWeek = getLatestWeek();
 
       return `
         <div class="dashboard-hero">
@@ -465,14 +479,14 @@
         </div>
 
         <h3 style="font-size: 1.1rem; color: var(--accent); margin-bottom: 12px; font-weight: 700;">
-          🥘 This Week's Meals
+          🥘 This Fortnight's Meals
         </h3>
         
         <div class="grid-cards">
           ${(currentWeek ? currentWeek.recipes : []).map(r => `
             <div class="recipe-tile" onclick="selectView('${r.id}')">
               <div>
-                <h3>${r.title}</h3>
+                <h3>${cleanTitle(r.title)}</h3>
                 <div class="tile-tags">
                   ${r.tags.map(t => `<span class="tag">${t}</span>`).join('')}
                 </div>
@@ -496,7 +510,7 @@
                     return `
                       <li class="${isChecked ? 'checked' : ''}">
                         <input type="checkbox" id="${chkId}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('${chkId}')">
-                        <label for="${chkId}"><strong>${r.title.split(' ')[0]}:</strong> ${step}</label>
+                        <label for="${chkId}"><strong>${cleanTitle(r.title).split(' ')[0]}:</strong> ${step}</label>
                       </li>
                     `;
                   }).join('')
@@ -560,11 +574,11 @@
 
       if (!recipe) return;
 
-      pageTitle.innerText = recipe.title;
+      pageTitle.innerText = cleanTitle(recipe.title);
 
       container.innerHTML = `
         <div class="view-card">
-          <h2>${recipe.title}</h2>
+          <h2>${cleanTitle(recipe.title)}</h2>
           <div class="meta-tags">
             ${recipe.tags.map(t => `<span class="tag">${t}</span>`).join('')}
           </div>
