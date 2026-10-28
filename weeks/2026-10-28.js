@@ -3,7 +3,7 @@ window.cookbookApp.weeks.push({
   recipes: [
     {
       id: "beef-mince-lettuce-cups",
-      title: "1. Ginger & Sweet Basil Beef Mince Lettuce Cups",
+      title: "Ginger & Sweet Basil Beef Mince Lettuce Cups",
       tags: ["Beef Mince", "Induction", "Week 1", "Quick"],
       ingredients: [
         "350g Grass Fed Beef Regular Mince",
@@ -32,7 +32,7 @@ window.cookbookApp.weeks.push({
     },
     {
       id: "air-fryer-lamb-kebabs",
-      title: "2. Air-Fried Spiced Lamb Kebabs with Charred Zucchini & Fennel",
+      title: "Air-Fried Spiced Lamb Kebabs with Charred Zucchini & Fennel",
       tags: ["Lamb", "Air Fryer", "Week 1", "Skewers"],
       ingredients: [
         "420g Lamb Shoulder, cut into 2.5 cm cubes",
@@ -59,7 +59,7 @@ window.cookbookApp.weeks.push({
     },
     {
       id: "beef-chuck-mushroom-stirfry",
-      title: "3. Flash-Seared Chuck Beef Stir-Fry with Leek & Swiss Browns",
+      title: "Flash-Seared Chuck Beef Stir-Fry with Leek & Swiss Browns",
       tags: ["Beef Chuck", "Induction", "Week 1", "Fast"],
       ingredients: [
         "400g Beef Chuck Roast, sliced paper-thin across the grain",
@@ -86,7 +86,7 @@ window.cookbookApp.weeks.push({
     },
     {
       id: "smash-patties-crispy-chips",
-      title: "4. Induction Beef Smash Patties with Air-Fried Potato Wedges",
+      title: "Induction Beef Smash Patties with Air-Fried Potato Wedges",
       tags: ["Beef Mince", "Induction", "Air Fryer", "Week 1"],
       ingredients: [
         "350g Grass Fed Beef Regular Mince, rolled into 4 firm balls",
@@ -112,7 +112,7 @@ window.cookbookApp.weeks.push({
     },
     {
       id: "pan-seared-lamb-medallions",
-      title: "5. Citrus-Herb Pan-Seared Lamb Medallions with Charred Asparagus",
+      title: "Citrus-Herb Pan-Seared Lamb Medallions with Charred Asparagus",
       tags: ["Lamb", "Induction", "Week 1", "Pan Sear"],
       ingredients: [
         "400g Lamb Shoulder Medallions (from Day 1 prep)",
@@ -137,7 +137,7 @@ window.cookbookApp.weeks.push({
     },
     {
       id: "slow-braised-beef-root-veg",
-      title: "6. Hearty Chuck Beef & Winter Root Vegetable Braise",
+      title: "Hearty Chuck Beef & Winter Root Vegetable Braise",
       tags: ["Beef Chuck", "Induction", "Week 2", "Slow Cook"],
       ingredients: [
         "400g Beef Chuck Roast, cubed (thawed from Day 1 prep)",
@@ -164,7 +164,7 @@ window.cookbookApp.weeks.push({
     },
     {
       id: "air-fried-meatballs-butternut-mash",
-      title: "7. Spiced Beef Meatballs over Roasted Butternut Squash Mash",
+      title: "Spiced Beef Meatballs over Roasted Butternut Squash Mash",
       tags: ["Beef Mince", "Air Fryer", "Week 2", "Mash"],
       ingredients: [
         "300g Grass Fed Beef Regular Mince (thawed from Day 1 prep)",
@@ -189,7 +189,7 @@ window.cookbookApp.weeks.push({
     },
     {
       id: "seared-chuck-steaks-sweet-corn",
-      title: "8. Pan-Seared Chuck Steaks with Charred Sweet Corn & Herbs",
+      title: "Pan-Seared Chuck Steaks with Charred Sweet Corn & Herbs",
       tags: ["Beef Chuck", "Induction", "Week 2", "Steak"],
       ingredients: [
         "400g Beef Chuck Steaks (2 pieces, thawed from Day 1 prep)",
@@ -213,7 +213,7 @@ window.cookbookApp.weeks.push({
     },
     {
       id: "air-fried-hash-sautéed-mushrooms",
-      title: "9. Air-Fried Sweet Potato & Parsnip Hash with Sautéed Mushrooms",
+      title: "Air-Fried Sweet Potato & Parsnip Hash with Sautéed Mushrooms",
       tags: ["Vegetarian", "Air Fryer", "Induction", "Week 2"],
       ingredients: [
         "2 sweet potatoes (kumara), peeled and diced into 1.5 cm cubes",
@@ -236,7 +236,7 @@ window.cookbookApp.weeks.push({
     },
     {
       id: "rustic-garden-broad-bean-bowl",
-      title: "10. Rustic Garden Stir-Fry Bowl with Broad Beans, Leek & Crispy Potatoes",
+      title: "Rustic Garden Stir-Fry Bowl with Broad Beans, Leek & Crispy Potatoes",
       tags: ["Vegetarian", "Air Fryer", "Induction", "Week 2"],
       ingredients: [
         "1 white potato, scrubbed and cut into small 1 cm dice",
@@ -260,7 +260,7 @@ window.cookbookApp.weeks.push({
     },
     {
       id: "extra-melon-apple-carpaccio",
-      title: "Snack Extra: Chilled Honeydew, Pear & Apple Carpaccio",
+      title: "Chilled Honeydew, Pear & Apple Carpaccio",
       tags: ["Snack", "Raw", "Fruit", "No Cook"],
       ingredients: [
         "1 honeydew melon, halved, seeded, and sliced paper-thin",
@@ -278,7 +278,7 @@ window.cookbookApp.weeks.push({
     },
     {
       id: "extra-quick-pickled-cucumbers",
-      title: "Snack Extra: Quick Fridge Pickled Cucumbers with Dill",
+      title: "Quick Fridge Pickled Cucumbers with Dill",
       tags: ["Snack", "Preserve", "Pantry", "Side"],
       ingredients: [
         "2 continental cucumbers, sliced into 3 mm rounds",
