@@ -504,13 +504,13 @@
               <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 12px;">Get all your containers prepped and veg chopped in one go:</p>
               <ul class="check-list">
                 ${currentWeek.recipes.map(r => 
-                  r.prep.map((step, idx) => {
+                  (r.prep || []).map((step, idx) => {
                     const chkId = `home-prep-${r.id}-${idx}`;
                     const isChecked = localStorage.getItem('chk_' + chkId) === 'true';
                     return `
                       <li class="${isChecked ? 'checked' : ''}">
                         <input type="checkbox" id="${chkId}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('${chkId}')">
-                        <label for="${chkId}"><strong>${cleanTitle(r.title).split(' ')[0]}:</strong> ${step}</label>
+                        <label for="${chkId}"><strong>${cleanTitle(r.title)}:</strong> ${step}</label>
                       </li>
                     `;
                   }).join('')
