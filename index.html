@@ -306,17 +306,38 @@
       border-top: 1px solid var(--border);
     }
 
+    /* Ingredient Grouped Prep Cards */
+    .ingredient-prep-card {
+      background: #faf8f5;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+    .ingredient-prep-card:last-child {
+      margin-bottom: 0;
+    }
+    .ingredient-prep-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     ul.check-list { list-style: none; }
     ul.check-list li {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      padding: 8px 0;
-      font-size: 0.95rem;
-      line-height: 1.5;
+      padding: 6px 0;
+      font-size: 0.92rem;
+      line-height: 1.45;
     }
     ul.check-list input[type="checkbox"] {
-      margin-top: 4px;
+      margin-top: 3px;
       accent-color: var(--accent);
       cursor: pointer;
     }
@@ -427,7 +448,6 @@
         <button class="nav-item ${activeView === 'rules' ? 'active' : ''}" onclick="selectView('rules')">📋 Kitchen Rules & Notes</button>
       `;
 
-      // Render weeks in reverse chronological order (latest at top of drawer)
       const reversedWeeks = [...window.cookbookApp.weeks].reverse();
 
       reversedWeeks.forEach(week => {
@@ -469,7 +489,6 @@
       const pageTitle = document.getElementById("pageTitle");
       pageTitle.innerText = "Kitchen Companion";
 
-      // Always picks the latest loaded fortnight from the manifest
       const currentWeek = getLatestWeek();
 
       return `
@@ -496,26 +515,30 @@
           `).join('')}
         </div>
 
-        <!-- Consolidated Prep Accordion for Grocery Day -->
-        ${currentWeek ? `
+        <!-- Consolidated Prep Accordion by Ingredient -->
+        ${currentWeek && currentWeek.groceryDayPrep ? `
           <details class="collapsible-section" open>
-            <summary>🔪 All Prep Tasks at a Glance (Grocery Day)</summary>
+            <summary>🔪 Delivery Day Prep & Storage (By Ingredient)</summary>
             <div class="section-body">
-              <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 12px;">Get all your containers prepped and veg chopped in one go:</p>
-              <ul class="check-list">
-                ${currentWeek.recipes.map(r => 
-                  (r.prep || []).map((step, idx) => {
-                    const chkId = `home-prep-${r.id}-${idx}`;
-                    const isChecked = localStorage.getItem('chk_' + chkId) === 'true';
-                    return `
-                      <li class="${isChecked ? 'checked' : ''}">
-                        <input type="checkbox" id="${chkId}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('${chkId}')">
-                        <label for="${chkId}"><strong>${cleanTitle(r.title)}:</strong> ${step}</label>
-                      </li>
-                    `;
-                  }).join('')
-                ).join('')}
-              </ul>
+              <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 16px;">Process and store all fresh ingredients in one go when deliveries arrive:</p>
+              
+              ${currentWeek.groceryDayPrep.map((group, gIdx) => `
+                <div class="ingredient-prep-card">
+                  <div class="ingredient-prep-title">📦 ${group.ingredient}</div>
+                  <ul class="check-list">
+                    ${group.tasks.map((task, tIdx) => {
+                      const chkId = `gprep-${gIdx}-${tIdx}`;
+                      const isChecked = localStorage.getItem('chk_' + chkId) === 'true';
+                      return `
+                        <li class="${isChecked ? 'checked' : ''}">
+                          <input type="checkbox" id="${chkId}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('${chkId}')">
+                          <label for="${chkId}">${task}</label>
+                        </li>
+                      `;
+                    }).join('')}
+                  </ul>
+                </div>
+              `).join('')}
             </div>
           </details>
         ` : ''}
@@ -604,7 +627,7 @@
 
           <!-- Section 2: Batch Prep & Storage -->
           <details class="collapsible-section" open>
-            <summary>🔪 Batch Prep & Storage</summary>
+            <summary>🔪 Meal Prep</summary>
             <div class="section-body">
               <ul class="check-list">
                 ${recipe.prep.map((step, idx) => {
