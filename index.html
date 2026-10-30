@@ -205,7 +205,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px;
-      margin-bottom: 24px;
     }
     .recipe-tile {
       background: var(--panel-bg);
@@ -497,23 +496,25 @@
           <p>${currentWeek ? currentWeek.weekTitle : 'No weekly plan loaded'}</p>
         </div>
 
-        <h3 style="font-size: 1.1rem; color: var(--accent); margin-bottom: 12px; font-weight: 700;">
-          🥘 This Fortnight's Meals
-        </h3>
-        
-        <div class="grid-cards">
-          ${(currentWeek ? currentWeek.recipes : []).map(r => `
-            <div class="recipe-tile" onclick="selectView('${r.id}')">
-              <div>
-                <h3>${cleanTitle(r.title)}</h3>
-                <div class="tile-tags">
-                  ${r.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+        <!-- Collapsible Meals Section -->
+        <details class="collapsible-section" open>
+          <summary>🥘 This Fortnight's Meals (${currentWeek ? currentWeek.recipes.length : 0} Planned)</summary>
+          <div class="section-body">
+            <div class="grid-cards">
+              ${(currentWeek ? currentWeek.recipes : []).map(r => `
+                <div class="recipe-tile" onclick="selectView('${r.id}')">
+                  <div>
+                    <h3>${cleanTitle(r.title)}</h3>
+                    <div class="tile-tags">
+                      ${r.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+                    </div>
+                  </div>
+                  <div class="btn-open">View Recipe & Steps →</div>
                 </div>
-              </div>
-              <div class="btn-open">View Recipe & Steps →</div>
+              `).join('')}
             </div>
-          `).join('')}
-        </div>
+          </div>
+        </details>
 
         <!-- Consolidated Prep Accordion by Ingredient -->
         ${currentWeek && currentWeek.groceryDayPrep ? `
